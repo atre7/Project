@@ -28,8 +28,8 @@ $(function() {
     }
     latlon = new google.maps.LatLng(lat, lon)
     mapholder = document.getElementById('mapholder')
-    mapholder.style.height = '250px';
-    mapholder.style.width = '500px';
+    mapholder.style.height = '400px';
+    mapholder.style.width = '800px';
 
     var myOptions = {
       center: latlon,

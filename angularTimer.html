@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AngularJS Example - Single Timer Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script>
+    function ExampleCtrl($scope, $timeout) {
+      var countDowner, countDown = 30;
+      countDowner = function() {
+        if (countDown < 0) {
+          $("#warning").fadeOut(2000);
+          countDown = 0;
+          return; // quit
+        } else {
+          $scope.countDown_text = countDown; // update scope
+          countDown--; // -1
+          $timeout(countDowner, 1000); // loop it again
+        }
+      };
+
+      $scope.countDown_text = countDown;
+      countDowner()
+    }
+  </script>
+</head>
+
+<body>
+  <div ng-app ng-controller="ExampleCtrl">
+    <div ng-show="countDown_text > 0">Your password is expired in 180 Seconds.</div>
+    <div ng-show="countDown_text > 0">Seconds left {{countDown_text}}</div>
+    <div ng-show="countDown_text == 0">Your password is expired!.</div>
+  </div>
+</body>
+
+</html>
