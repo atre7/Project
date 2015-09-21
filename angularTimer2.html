@@ -5,7 +5,7 @@
   <title>Example - example-example110-production</title>
 
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 
 
 
@@ -15,9 +15,9 @@
   angular.module('intervalExample', [])
     .controller('ExampleController', ['$scope', '$interval',
       function($scope, $interval) {
-        $scope.format = 'M/d/yy h:mm:ss a';
-        $scope.blood_1 = 1000;
-        $scope.blood_2 = 2000;
+        $scope.format = 'M/d/yy h:mm:ss a'; //dd MMMM yyyy hh:mm:ss
+        $scope.blood_1 = 0;
+        $scope.blood_2 = 0;
 
         var stop;
         $scope.fight = function() {
@@ -31,7 +31,7 @@
             } else {
               $scope.stopFight();
             }
-          }, 100);
+          }, 1000);
         };
 
         $scope.stopFight = function() {
@@ -45,8 +45,18 @@
           $scope.blood_1 = 100;
           $scope.blood_2 = 120;
         };
+        $scope.incFight = function() {
+          $scope.blood_1 += 10;
+          $scope.blood_2 += 20;
+        };
+        $scope.decFight = function() {
+          $scope.blood_1 -= 10;
+          $scope.blood_2 -= 20;
+        };
 
         $scope.$on('$destroy', function() {
+          console.log("destroy");
+          confirm("destroy");
           // Make sure that the interval is destroyed too
           $scope.stopFight();
         });
@@ -92,6 +102,8 @@
     <button type="button" data-ng-click="fight()">Fight</button>
     <button type="button" data-ng-click="stopFight()">StopFight</button>
     <button type="button" data-ng-click="resetFight()">resetFight</button>
+    <button type="button" data-ng-click="incFight()">incFight</button>
+    <button type="button" data-ng-click="decFight()">decFight</button>
   </div>
 </div>
 </body>

@@ -9,8 +9,10 @@
         $scope.names = ['Larry', 'Curly', 'Moe'];
 
         $scope.addName = function() {
+          if($scope.enteredName !== ''){
           $scope.names.push($scope.enteredName);
           $scope.enteredName = '';
+        }
         };
 
         $scope.removeName = function(name) {

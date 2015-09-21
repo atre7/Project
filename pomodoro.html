@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html ng-app="PomodoroApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Pomodoro</title>
+      <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="pomodoro.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <h1>Pomodoro</h1>
+    <main  ng-controller="MainCtrl">
+      <header>
+        <div class="session">
+          <div class="breakCtrl">
+            <p>Break time</p>
+            <button ng-click="breakLengthChange(-1)" class="minus">-</button><span class="time">{{breakLength}}</span>
+            <button ng-click="breakLengthChange(1)" class="plus">+</button>
+          </div>
+          <div class="sessionCtrl">
+            <p>Work time</p>
+            <button ng-click="sessionLengthChange(-1)" class="minus">-</button><span class="time">{{sessionLength}}</span>
+            <button ng-click="sessionLengthChange(1)" class="plus">+</button>
+          </div>
+        </div>
+      </header>
+      <div class="" ng-mouseenter="mouseActive()" ng-mouseleave="mouseDisactive()" ng-style="{'background':bckColor}">
+        <div class="arrow-down">
+
+        </div>
+        <div class="arrow-up">
+
+        </div>
+      </div>
+
+      <section ng-click="toggleTimer()">
+        <div class="rotateEgg " ng-style="{'transform': rotateEggs}">
+
+
+        <div class="timerSmall " ng-style="{'transform': rotate}">
+          <p class="title" ng-show="actionStatus ==='Work' " >{{actionStatus}}</p>
+          <p ng-show="actionStatus ==='Work' ">{{timeWork}}</p><span ng-style="{'height':upFill, 'background':fillColor }" class="fill"></span>
+        </div>
+        <div class="timerBig " ng-style="{'transform': rotate}" >
+
+            <p class="title"ng-show="actionStatus=== 'Break!'" >{{actionStatus}}</p>
+          <p ng-show="actionStatus=== 'Break!'">{{timeBreak}}</p><span ng-style="{'height':downFill, 'background':fillColor }" class="fill"></span>
+
+        </div>
+        </div>
+      </section>
+
+
+
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js" charset="utf-8"></script>
+    <script src="pomodoro.js" charset="utf-8"></script>
+  </body>
+</html>
