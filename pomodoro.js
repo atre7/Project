@@ -1,4 +1,6 @@
 var app = angular.module('PomodoroApp', []);
+var wav = 'http://www.oringz.com/oringz-uploads/sounds-917-communication-channel.mp3';
+var audio = new Audio(wav);
 app.controller('MainCtrl', function($scope, $interval) {
   $scope.breakLength = 1;
   $scope.sessionLength = 1;
@@ -80,8 +82,7 @@ app.controller('MainCtrl', function($scope, $interval) {
       // countdown is finished
 
       // Play audio
-      var wav = 'http://www.oringz.com/oringz-uploads/sounds-917-communication-channel.mp3';
-      var audio = new Audio(wav);
+
       audio.play();
 
       // toggle break and session
