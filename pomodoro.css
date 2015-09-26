@@ -2,94 +2,47 @@
   margin: 0;
   font-family: 'Indie Flower', cursive;
 }
-
-html,
-body,
-main {
+html, body, main {
   height: 100%;
-  overflow: hidden;
   background-color: #333333;
 }
-
 h1 {
   display: block;
-  background-color: #333333;
   margin: 0 auto;
   color: white;
   text-align: center;
   font-family: 'Indie Flower', cursive;
   font-size: 5em;
+  letter-spacing: 10px;
 }
-
-header {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 0 auto;
-  color: #fff;
-  text-transform: uppercase;
-  padding: 20px;
-}
-
-header .session {
-  font-size: 1.5em;
-  display: flex;
-}
-
-header .session .breakCtrl,
-header .session .sessionCtrl {
-  display: inline;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-header .session .minus,
-header .session .plus {
-  background-color: #333333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 4em;
-  outline: none;
-}
-
-header .session .time {
-  font-size: 2.5em;
-  padding-left: 10px;
-  padding-right: 10px;
+.mid {
+  margin-top: 100px;
 }
 
 section {
-  background-color: #333333;
-  height: 100%;
-  color: #fff;
+  color: grey;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-shadow: 4px 4px #dad3d3;
 }
-
 section .title {
+  margin-top: 80px;
   text-align: center;
-  line-height: 180px;
+  line-height: 80px;
   font-size: .8em;
 }
-
-.rotateEgg {
-  transition: transform 2s;
-  filter :blur(10px);
-}
-
 section .timerSmall {
   margin: 0 auto;
   text-align: center;
-  width: 400px;
-  height: 300px;
+  width: 200px;
+  height: 250px;
   font-size: 4em;
-  border: 2px solid #99CC00;
+  border: 5px solid #fff;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
-  z-index: 20;
   overflow: hidden;
 }
-
 section .timerSmall:before {
   content: '';
   position: absolute;
@@ -98,25 +51,21 @@ section .timerSmall:before {
   left: 0;
   right: 0;
   border-radius: 50%;
-  z-index: 2;
-  border: 4px solid #333333;
+  border: 5px solid rgb(70, 70, 70);
 }
-
 section .timerBig {
   margin: 0 auto;
   margin-top: -5px;
   text-align: center;
-  width: 400px;
-  height: 300px;
+  width: 200px;
+  height: 250px;
   font-size: 4em;
-  border: 2px solid #99CC00;
+  border: 5px solid #fff;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
-  z-index: 20;
   overflow: hidden;
 }
-
 section .timerBig:before {
   content: '';
   position: absolute;
@@ -125,32 +74,66 @@ section .timerBig:before {
   left: 0;
   right: 0;
   border-radius: 50%;
-  z-index: 2;
-  border: 4px solid #333333;
+  border: 5px solid rgb(70, 70, 70);
 }
-
-section .fill {
-  content: '';
+ .fill {
   position: absolute;
-  background: #99CC00;
   bottom: 0;
   right: 0;
   left: 0;
   z-index: -1;
+  transition: width 1.5s, height .1s;
+}
+#centerPom {
+  width: 50%;
+  margin: 0 auto;
+}
+.rotateEgg {
+  margin: 0 auto;
+  padding: 5px;
+  border: 2px solid pink;
+  border-radius: 20px;
+  box-shadow: 0 0 5px 5px pink inset;
+  background-color: rgb(70, 70, 70);
+  width: 218px;
+  transition: transform 1s;
 }
 
-.arrow-up {
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid black;
-}
+footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 20px;
 
-.arrow-down {
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid #f00;
+}
+footer.cssFade {
+    transition: 1.5s linear all;
+    opacity: 1;
+}
+footer.cssFade.ng-hide {
+    opacity: 0;
+}
+footer .setTime {
+  font-size: 1.5em;
+  display: flex;
+}
+footer .setTime .breakCtrl, footer .setTime .sessionCtrl {
+  display: inline;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+footer .setTime .minus, footer .setTime .plus {
+  background-color: #333333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 4em;
+  outline: none;
+}
+footer .setTime .time {
+  font-size: 2.5em;
+  padding-left: 10px;
+  padding-right: 10px;
 }
