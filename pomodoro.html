@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html ng-app="PomodoroApp">
-    <head>
-        <meta charset="utf-8">
-        <title>Pomodoro</title>
-        <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="pomodoro.css" media="screen" title="no title" charset="utf-8">
-    </head>
-    <body>
-         <h1>Pomodoro</h1>
-        <main ng-controller="MainCtrl">
-            <header>
-                <div class="session">
-                    <div class="breakCtrl">
-                        <p>Break timeX</p>
-                        <button ng-click="breakLengthChange(-1)" class="minus">-</button><span class="time">{{breakLength}}</span>
-                        <button ng-click="breakLengthChange(1)" class="plus">+</button>
-                    </div>
-                    <div class="sessionCtrl">
-                        <p>Work time</p>
-                        <button ng-click="sessionLengthChange(-1)" class="minus">-</button><span class="time">{{sessionLength}}</span>
-                        <button ng-click="sessionLengthChange(1)" class="plus">+</button>
-                    </div>
-                </div>
-            </header>
-            <section ng-click="toggleTimer()">
-                <div class="rotateEgg " ng-style="{'transform': rotateEggs}">
-                    <div class="timerSmall " ng-style="{'transform': rotate}">
-                        <p class="title" ng-show="actionStatus ==='Work' ">{{actionStatus}}</p>
-                        <p ng-show="actionStatus ==='Work' ">{{timeWork}}</p><span ng-style="{'height':upFill, 'background':fillColor }" class="fill"></span>
-                    </div>
-                    <div class="timerBig " ng-style="{'transform': rotate}">
-                        <p class="title" ng-show="actionStatus=== 'Break!'">{{actionStatus}}</p>
-                        <p ng-show="actionStatus=== 'Break!'">{{timeBreak}}</p><span ng-style="{'height':downFill, 'background':fillColor }" class="fill"></span>
-                    </div>
-                </div>
-            </section>
-          </main>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js" charset="utf-8"></script>
-        <script src="pomodoro.js" charset="utf-8"></script>
-    </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Pomodoro</title>
+  <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="pomodoro.css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body>
+  <h1>Pomodoro</h1>
+  <main ng-controller="MainCtrl">
+
+    <section ng-click="toggleTimer()">
+      <div id="centerPom">
+        <div class="rotateEgg " ng-style="{'transform': rotateEggs}">
+          <div class="timerSmall " ng-style="{'transform': rotate}">
+            <p class="title" ng-show="actionStatus ==='Relax' && run">{{actionStatus}}</p>
+            <p class="mid" ng-show="actionStatus ==='Work' && run">{{timeWork}}</p>
+            <span  ng-style="{'height':upFill,'width':pauseSand, 'background':fillColor }" class="fill"></span>
+          </div>
+          <div class="timerBig " ng-style="{'transform': rotate}">
+            <p class="title" ng-show="actionStatus=== 'Work'&& run">{{actionStatus}}</p>
+            <p class="mid" ng-show="actionStatus=== 'Relax'&& run">{{timeBreak}}</p>
+            <span  ng-style="{'height':downFill, 'width':pauseSand, 'background':fillColor }" class="fill"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="cssFade" ng-hide="run">
+      <div class="setTime">
+        <div class="breakCtrl">
+          <p>Relax</p>
+          <button ng-click="relaxLengthChange(-1)" class="minus">-</button>
+          <span class="time">{{relaxLength}}</span>
+          <button ng-click="relaxLengthChange(1)" class="plus">+</button>
+        </div>
+        <div class="sessionCtrl">
+          <p>Work</p>
+          <button ng-click="workLengthChange(-1)" class="minus">-</button>
+          <span class="time">{{workLength}}</span>
+          <button ng-click="workLengthChange(1)" class="plus">+</button>
+        </div>
+      </div>
+    </footer>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-animate.min.js" charset="utf-8"></script>
+  <script src="pomodoro.js" charset="utf-8"></script>
+</body>
+
 </html>
